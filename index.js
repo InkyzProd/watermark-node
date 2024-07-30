@@ -2,9 +2,17 @@ const express = require("express");
 const path = require("path");
 const multer = require("multer");
 const { ImageProcessor } = require("./pkg/jimp");
+const fs = require('fs');
 
 const app = express();
 const PORT = 3000;
+
+// Mengecek folder
+const uploadDir = 'uploads';
+
+if (!fs.existsSync(uploadDir)){
+    fs.mkdirSync(uploadDir);
+}
 
 // Middleware untuk menangani upload file
 const storage = multer.diskStorage({
@@ -59,7 +67,7 @@ app.post("/add-watermark", upload.single("image"), async (req, res) => {
         const color = req.body.color;
 
         // Proses penambahan watermark
-        const outputPath = await Image.addWatermark(
+        const outputPath = await ImageProcessor.addWatermark(
             imagePath,
             watermarkText,
             position,
