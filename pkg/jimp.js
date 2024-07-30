@@ -60,12 +60,18 @@ class ImageProcessor {
                 alignmentY: Jimp.VERTICAL_ALIGN_TOP,
             });
 
-            // Tentukan path output
+            // Path output
+            const editedDir = path.join(__dirname, "..", "edited");
+            
+            if (!fs.existsSync(editedDir)) {
+                fs.mkdirSync(editedDir, { recursive: true });
+            }
+
             const outputPath = path.join(
                 __dirname,
                 "..",
                 "edited",
-                `${path.basename(imagePath)}_edited`,
+                `${path.basename(imagePath, path.extname(imagePath))}_edited${path.extname(imagePath)}`,
             );
             await image.writeAsync(outputPath);
 
