@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Upload Image</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <h1>Watermark-node</h1>
+        <form
+            action="/add-watermark"
+            method="POST"
+            enctype="multipart/form-data">
+            <input type="file" name="image" required /><br /><br />
+            <input
+                type="text"
+                name="watermark"
+                placeholder="Enter watermark text"
+                required /><br /><br />
+            <label for="position">Pilih posisi watermark:</label><br />
+            <select name="position" id="position" required>
+                <option value="top-left">Atas Kiri</option>
+                <option value="top-right">Atas Kanan</option>
+                <option value="bottom-left">Bawah Kiri</option>
+                <option value="bottom-right">Bawah Kanan</option></select
+            ><br /><br />
+            <label for="color">Pilih warna teks:</label><br />
+            <select name="color" id="color" required>
+                <option value="black">Hitam</option>
+                <option value="white">Putih</option></select
+            ><br /><br />
+            <button type="submit">Upload</button>
+        </form>
+    </body>
+</html>
