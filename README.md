@@ -15,11 +15,10 @@ Berikut adalah package yang saya gunakan untuk membuat project ini:
 
 1. Clone repository ini:
     ```bash
-    git clone https://github.com/InkyzProd/watermark-node.git
+    git clone https://github.com/InkyzProd/watermark-node.git && cd watermark-node
     ```
 2. Install dependencies:
     ```bash
-    cd watermark-node
     npm install
     ```
 3. Jalankan server:
